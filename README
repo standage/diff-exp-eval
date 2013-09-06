@@ -1,0 +1,44 @@
+Sequence data
+-------------
+
+* seqs/mrna-isoform1.fa:   This file contains the sequence of an mRNA with 3
+                           exons. It was chosen randomly from the set of all
+                           mRNAs in the P. dominula Maker annotation r1.0 with 3
+                           exons, whose middle exon has length divisible by 3
+                           (so that its removal does not disrupt the coding
+                           sequence).
+
+* seqs/cds-isoform1.fa:    This file contains the coding sequence corresponding
+                           to mRNA isoform 1.
+
+* seqs/mrna-isoform2.fa:   This file contains the sequence of an imaginary mRNA
+                           with 2 exons. It was craeted by removing the internal
+                           exon from isoform 1. For some exercises this will be
+                           treated as an alternative splice variant to isoform
+                           1.
+
+* seqs/cds-isoform2.fa:    This file contains the coding sequence corresponding
+                           to mRNA isoform 2.
+
+* seqs/mrnas.fa:           This file contains the sequences of both mRNAs
+                           described above.
+
+* seqs/ilocus.fa:          This file contains the genomic sequence of the
+                           interval locus to which the annotated mRNA belongs.
+
+* seqs/tsa.fa:             This file contains the TSAs that aligned to the
+                           ilocus.
+
+
+
+Code
+----
+
+* bin/select.c:            This is the program used to identify all mRNAs that
+                           matched the criteria described above: 3 exons, the
+                           internal exon with a length divisible by 3.
+
+* bin/sim.sh:              This is the script used to simulate sequence reads
+                           using wgsim. Its usage is as follows.
+
+                                    bin/sim.sh <seqs> <outdir>
