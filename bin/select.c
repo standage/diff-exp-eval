@@ -1,7 +1,10 @@
 #define  WITHOUT_CAIRO
 #include "genometools.h"
 
+// Compile as follows:
 // gcc -Wall -O3 -g -I /usr/local/include/genometools -o select select.c -lgenometools
+
+// Usage: ./select annot1.gff3 [annot2.gff3 ...]
 
 bool meets_criteria(GtFeatureNode *mrna)
 {
@@ -14,25 +17,28 @@ bool meets_criteria(GtFeatureNode *mrna)
   GtFeatureNodeIterator *iter = gt_feature_node_iterator_new_direct(mrna);
   GtFeatureNode *child;
   unsigned long numexons = 0;
-  bool secondexonlengthcrit = false;
+  unsigned long totalexonlength = 0;
+  unsigned long secondexonlength;
   for(child  = gt_feature_node_iterator_next(iter);
       child != NULL;
       child  = gt_feature_node_iterator_next(iter))
   {
     if(gt_feature_node_has_type(child, "exon"))
     {
+      GtGenomeNode *gn = (GtGenomeNode *)child;
+      unsigned long exonlength = gt_genome_node_get_length(gn);
+      totalexonlength += exonlength;
       numexons++;
       if(numexons == 2)
-      {
-        GtGenomeNode *gn = (GtGenomeNode *)child;
-        unsigned long exonlength = gt_genome_node_get_length(gn);
-        if(exonlength % 3 == 0)
-          secondexonlengthcrit = true;
-      }
+        secondexonlength = exonlength;
     }
   }
   gt_feature_node_iterator_delete(iter);
-  if(numexons == 3 && secondexonlengthcrit == true)
+
+  bool numexoncriterion = (numexons == 3);
+  bool secondexonlengthcriterion = (secondexonlength > 150);
+  bool totallengthcriterion = (totalexonlength - secondexonlength > 500);
+  if(numexoncriterion && secondexonlengthcriterion && totallengthcriterion)
     return true;
 
   return false;
