@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 for test in {1..2}
 do
   for exp in {1..5}
