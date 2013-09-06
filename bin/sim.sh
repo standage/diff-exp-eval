@@ -1,8 +1,48 @@
 #!/usr/bin/env bash
-seq=$1
-test -z $seq && echo "Please provide sequence" &&  exit
-reads=$2
-test -z $reads && echo "Please provide outdir" &&  exit
+
+print_usage()
+{
+  cat <<EOF
+Usage: $0 [options] seqs.fasta
+  Options:
+    -b:    baseline expression level (in 100bp-length read pairs);
+           default is 150
+    -h:    print this help message and exit
+    -o:    directory in which to place reads; default is 'reads'
+    -s:    seed for random number generator; default is -1
+EOF
+}
+
+baseline=150
+reads="reads"
+seed=-1
+while getopts "b:ho:s:" OPTION
+do
+  case $OPTION in
+    b)
+      baseline=$OPTARG
+      ;;
+    h)
+      print_usage
+      exit 0
+      ;;
+    o)
+      reads=$OPTARG
+      ;;
+    s)
+      seed=$OPTARG
+      ;;
+  esac
+done
+shift $((OPTIND-1))
+
+if [[ $# != 1 ]]; then
+  echo -e "error: please provide sequence file\n"
+  print_usage
+  exit 1
+fi
+infile=$1
+test -d $reads && echo "error: output directory '$reads' exists" && exit 1
 mkdir $reads
 
 # Experiment data: label:queen-abundances:worker-abundances
@@ -17,32 +57,31 @@ do
   w2abun=`echo $wabuns | cut -f 2 -d ','`
 
   echo "Experiment '$explab': Q1=$q1abun, Q2=$q2abun, W1=$w1abun, W2=$w2abun"
-  baseline=150 # Baseline number of reads
 
   wgsim -1 100 -2 100 -d 270 -s 40    \
         -N $(( $baseline * $q1abun )) \
-        $seq                          \
+        -S $seed $infile              \
         $reads/$explab.q1.1.fq        \
         $reads/$explab.q1.2.fq        \
         > /dev/null 2>&1
 
   wgsim -1 100 -2 100 -d 270 -s 40    \
         -N $(( $baseline * $q2abun )) \
-        $seq                          \
+        -S $seed $infile              \
         $reads/$explab.q2.1.fq        \
         $reads/$explab.q2.2.fq        \
         > /dev/null 2>&1
 
   wgsim -1 100 -2 100 -d 270 -s 40    \
         -N $(( $baseline * $w1abun )) \
-        $seq                          \
+        -S $seed $infile              \
         $reads/$explab.w1.1.fq        \
         $reads/$explab.w1.2.fq        \
         > /dev/null 2>&1
 
   wgsim -1 100 -2 100 -d 270 -s 40    \
         -N $(( $baseline * $w2abun )) \
-        $seq                          \
+        -S $seed $infile              \
         $reads/$explab.w2.1.fq        \
         $reads/$explab.w2.2.fq        \
         > /dev/null 2>&1
