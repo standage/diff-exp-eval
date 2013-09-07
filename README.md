@@ -40,4 +40,7 @@ Isoform 2 was created by removing the internal exon from isoform 2.
 
 The `simreads.pl` script (in the `simulate` directory) utilizes the `wgsim` program (https://github.com/lh3/wgsim) to simulate paired-end short read data.
 The `config.yml` file contains a machine-readable representation of the schematic above and was used as input to generate the simulated reads.
-The simulated reads are organized by test and experiment in directory `test1`, `test2`, and so on.
+
+    perl simulate/simreads.pl --in=seqs simulate/config.yml
+
+The simulated reads are organized by test and experiment in directory `test1`, `test2`, and `test3`.
