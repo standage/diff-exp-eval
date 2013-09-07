@@ -44,3 +44,15 @@ The `config.yml` file contains a machine-readable representation of the schemati
     perl simulate/simreads.pl --in=seqs simulate/config.yml
 
 The simulated reads are organized by test and experiment in directory `test1`, `test2`, and `test3`.
+
+## Differential expression analysis with RSEM and EBSeq
+
+One of the differential expression analysis tools we are evaluating is RSEM/EBSeq.
+The `rsem` directory contains some shell scripts to automate the execution of this tool on each experiment
+
+    bash rsem/rsem-prep-run.sh
+    bash rsem/rsem-calc-wrapper.sh
+    bash rsem/ebseq-wrapper.sh
+
+Unfortunately, there seems to be an error in the final step, such that no DE results are reported for any of the experiments.
+I am investigating this now.
