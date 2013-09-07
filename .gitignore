@@ -1,5 +1,5 @@
 abund
 scratch
 seqs/*rsem*
-bin/select
-bin/select.dSYM
+seqs/select
+seqs/select.dSYM

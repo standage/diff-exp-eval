@@ -1,0 +1,141 @@
+test1:
+  exp1:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+      q2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+  exp2:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 2, sequence: mrna-isoform1.fa }
+      q2:
+        - { abundance: 2, sequence: mrna-isoform1.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+  exp3:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 5, sequence: mrna-isoform1.fa }
+      q2:
+        - { abundance: 5, sequence: mrna-isoform1.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+  exp4:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 7, sequence: mrna-isoform1.fa }
+      q2:
+        - { abundance: 3, sequence: mrna-isoform1.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+  exp5:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 5, sequence: mrna-isoform1.fa }
+      q2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+      w1:
+        - { abundance: 5, sequence: mrna-isoform1.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+
+test2:
+  exp1:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+      q2:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+  exp2:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 2, sequence: mrna-both-isoforms.fa }
+      q2:
+        - { abundance: 2, sequence: mrna-both-isoforms.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+  exp3:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 5, sequence: mrna-both-isoforms.fa }
+      q2:
+        - { abundance: 5, sequence: mrna-both-isoforms.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+  exp4:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 7, sequence: mrna-both-isoforms.fa }
+      q2:
+        - { abundance: 3, sequence: mrna-both-isoforms.fa }
+      w1:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+  exp5:
+    baseline: 150
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 5, sequence: mrna-both-isoforms.fa }
+      q2:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+      w1:
+        - { abundance: 5, sequence: mrna-both-isoforms.fa }
+      w2:
+        - { abundance: 1, sequence: mrna-both-isoforms.fa }
+
+test3:
+  exp1:
+    baseline: 100
+    seed: 1378491420
+    samples:
+      q1:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+        - { abundance: 5, sequence: mrna-isoform2.fa }
+      q2:
+        - { abundance: 1, sequence: mrna-isoform1.fa }
+        - { abundance: 5, sequence: mrna-isoform2.fa }
+      w1:
+        - { abundance: 5, sequence: mrna-isoform1.fa }
+        - { abundance: 1, sequence: mrna-isoform2.fa }
+      w2:
+        - { abundance: 5, sequence: mrna-isoform1.fa }
+        - { abundance: 1, sequence: mrna-isoform2.fa }

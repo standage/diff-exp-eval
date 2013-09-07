@@ -1,0 +1,6 @@
+[wgsim] seed = 1378491420
+[wgsim_core] calculating the total length of the reference sequence...
+[wgsim_core] 2 sequences, total length: 1632
+isoform1	572	G	C	-
+isoform1	888	A	T	-
+isoform2	656	T	-	-
