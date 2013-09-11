@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: bash ebseq-run.sh abund/testX/expY
+# Usage: bash ebseq-run.sh abund/rsem/testX/expY
 datadir=$1
 cd $datadir
 export PATH=/usr/local/src/RSEM:$PATH

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: bash rsem-calc-run.sh testX/expY seqs abund/testX/expY
+# Usage: bash rsem-calc-run.sh testX/expY seqs abund/rsem/testX/expY
 readsdir=$(cd $(dirname $1); pwd)/$(basename $1) # Gets full path
 seqdir=$(cd $(dirname $2); pwd)/$(basename $2)   # Gets full path
 outdir=$3

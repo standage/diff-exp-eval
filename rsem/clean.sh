@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-rm -r abund seqs/*rsem*
+rm -r abund/rsem seqs/*rsem*
