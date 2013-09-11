@@ -15,12 +15,12 @@ do
     for rep in {1..2}
     do
       sample=${caste}${rep}
-      echo "Processing sample $sample"
+      echo "Processing sample $sample -> ${moltype} ($1)"
       bowtie2 -x $seqdir/${moltype}.bowtie2idx \
                  -1 $readsdir/${sample}.1.fq \
                  -2 $readsdir/${sample}.2.fq \
                  --threads 4 \
-                 --very-sensitive \
+                 --very-sensitive \ # -D 20 -R 3 -N 1 -L 20 -i S,1,0.50
                  -S ${sample}.${moltype}.bowtie2.sam \
                  > ${sample}.${moltype}.bowtie2.log 2>&1
     done
