@@ -48,7 +48,9 @@ The `config.yml` file contains a machine-readable representation of the schemati
 
 The simulated reads are organized by test and experiment in directory `test1`, `test2`, and `test3`.
 
-## Differential expression analysis with RSEM and EBSeq
+## Differential expression analysis
+
+### Bowtie, RSEM, and EBSeq
 
 One of the differential expression analysis tools we are evaluating is RSEM/EBSeq.
 The `rsem` directory contains some shell scripts to automate the execution of this tool on each experiment.
@@ -60,7 +62,7 @@ The `rsem` directory contains some shell scripts to automate the execution of th
 Unfortunately, there seems to be an error in the final step, such that no DE results are reported for any of the experiments.
 I am investigating this now.
 
-## Differential expression analysis with DESeq and edgeR
+### Bowtie2, eXpress, and DESeq/edgeR
 
 DESeq and edgeR are two other tools we are evaluating.
 We are using the same mapping and expression estimation procedure (bowtie2 + eXpress) for both of these tools.
