@@ -3,8 +3,10 @@ for test in {1..2}
 do
   for exp in {1..5}
   do
-    bash express/express-run.sh seqs abund/express/test${test}/exp${exp}
+    express/express-run.sh seqs abund/express/test${test}/exp${exp}
+    express/express-combine.R abund/express/test${test}/exp${exp}
   done
 done
 
-bash express/express-run.sh seqs abund/express/test3/exp1
+express/express-run.sh seqs abund/express/test3/exp1
+express/express-combine.R abund/express/test3/exp1

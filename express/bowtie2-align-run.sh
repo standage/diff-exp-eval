@@ -20,9 +20,10 @@ do
                  -1 $readsdir/${sample}.1.fq \
                  -2 $readsdir/${sample}.2.fq \
                  --threads 4 \
-                 --very-sensitive \ # -D 20 -R 3 -N 1 -L 20 -i S,1,0.50
+                 --very-sensitive \
                  -S ${sample}.${moltype}.bowtie2.sam \
                  > ${sample}.${moltype}.bowtie2.log 2>&1
+                 # -D 20 -R 3 -N 1 -L 20 -i S,1,0.50
     done
   done
 done
