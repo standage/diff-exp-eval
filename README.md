@@ -1,6 +1,9 @@
 The code and data stored in this repository are being used to evaluate the performance of differential expression analysis tools.
 A description of the analysis is provided below.
 
+Daniel S. Standage  
+Ali J. Berens
+
 ## Design
 
 In this analysis, we are looking at expression at a single locus.
@@ -48,11 +51,26 @@ The simulated reads are organized by test and experiment in directory `test1`, `
 ## Differential expression analysis with RSEM and EBSeq
 
 One of the differential expression analysis tools we are evaluating is RSEM/EBSeq.
-The `rsem` directory contains some shell scripts to automate the execution of this tool on each experiment
+The `rsem` directory contains some shell scripts to automate the execution of this tool on each experiment.
 
-    bash rsem/rsem-prep-run.sh
-    bash rsem/rsem-calc-wrapper.sh
-    bash rsem/ebseq-wrapper.sh
+    rsem/rsem-prep-run.sh
+    rsem/rsem-calc-wrapper.sh
+    rsem/ebseq-wrapper.sh
 
 Unfortunately, there seems to be an error in the final step, such that no DE results are reported for any of the experiments.
 I am investigating this now.
+
+## Differential expression analysis with DESeq and edgeR
+
+DESeq and edgeR are two other tools we are evaluating.
+We are using the same mapping and expression estimation procedure (bowtie2 + eXpress) for both of these tools.
+The `express` directory contains some shell and R scripts to automate the execution of these tools on each experiment.
+Note that as of yet, only the DESeq differential expression analysis is included.
+
+    express/bowtie2-build-run.sh
+    express/bowtie2-align-wrapper.sh
+    express/express-wrapper.sh
+    express/deseq-wrapper.sh
+
+As luck would have it, there are errors in the final step of this pipeline as well.
+I'm investigating.
