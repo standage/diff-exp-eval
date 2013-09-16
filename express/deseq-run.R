@@ -28,8 +28,8 @@ for(moltype in moltypes)
   dispTable(data)
 
   # Results for comparison between castes
-  outfile.all <- sprintf("%s.diffexp.all.txt")
-  outfile.sig <- sprintf("%s.diffexp.sig.txt")
+  outfile.all <- sprintf("%s.diffexp.all.txt", moltype)
+  outfile.sig <- sprintf("%s.diffexp.sig.txt", moltype)
   qw <- nbinomTest(data, "Q", "W")
   write.table(qw, file=outfile.all ,sep="\t", row.names=rownames(qw), col.names=colnames(qw), quote=F)
   qwSig <- qw[ qw$padj < .05, ]

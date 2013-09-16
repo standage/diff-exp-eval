@@ -6,7 +6,6 @@ seqdir=$(cd $(dirname $2); pwd)/$(basename $2) # Gets full path
 outdir=$3
 mkdir -p $outdir
 cd $outdir
-export PATH=/home/tothlab/bowtie2-2.1.0:$PATH
 
 for moltype in ilocus mrna
 do

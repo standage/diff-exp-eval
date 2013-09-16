@@ -3,7 +3,6 @@
 # Usage: bash ebseq-run.sh abund/rsem/testX/expY
 datadir=$1
 cd $datadir
-export PATH=/usr/local/src/RSEM:$PATH
 
 for moltype in ilocus mrna
 do
@@ -12,6 +11,11 @@ do
                             rsem-w1-${moltype}.genes.results \
                             rsem-w2-${moltype}.genes.results \
                             > rsem-all-${moltype}.genes.results
-  rsem-find-DE rsem-all-${moltype}.genes.results 2 0.05 rsem-${moltype}-diffexp \
-               > rsem-${moltype}-diffexp.log 2>&1
+  rsem-run-ebseq rsem-all-${moltype}.genes.results 2,2 \
+                 rsem-ebseq-results-${moltype}.txt \
+                 > rsem-ebseq-${moltype}.log 2>&1
+
+  rsem-control-fdr rsem-ebseq-results-${moltype}.txt 0.05 \
+                   rsem-ebseq-diffexp-${moltype}.txt \
+                    > rsem-${moltype}-diffexp.log 2>&1
 done

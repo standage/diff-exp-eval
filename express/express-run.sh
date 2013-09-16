@@ -4,7 +4,6 @@
 seqdir=$(cd $(dirname $1); pwd)/$(basename $1) # Gets full path
 workdir=$2
 cd $workdir
-export PATH=/home/tothlab/express-1.3.1-linux_x86_64:$PATH
 
 for moltype in ilocus mrna
 do
